@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+    <title>Odtwarzacz</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="faico/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="faico/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="stylePlayer.css">
+  </head>
+  <body>
+	<div class="audio">
+		<div id="grid-background">
+			<div id="mic"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+			<div id="title">Powiedz "rozpocznij", lub naciśnij tu by zacząć!</div>
+			<div id="timeStart">0:00</div>
+			<div id="timeBar"><i class="fa fa-circle" aria-hidden="true"></i><hr></div>
+			<div id="timeEnd">0:00</div>
+			<div id="back"><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+			<div id="play"><i class="fa fa-pause" aria-hidden="true"></i></div>
+			<div id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+			<div id="random"><i class="fa fa-random" aria-hidden="true"></i></div>
+			<div id="repeat"><i class="fa fa-repeat" aria-hidden="true"></i></div>
+			<div id="volume">
+				<i class="fa fa-volume-up" aria-hidden="true"></i>
+				<div id="volumeCtrl">
+					<i class="fa fa-volume-up" aria-hidden="true"></i>
+					<div id="hrCtrl">
+						<i class="fa fa-circle" aria-hidden="true"></i>
+						<hr>
+					</div>
+				</div>
+			</div>
+			<div id="listBar">
+				<i class="fa fa-arrow-down" aria-hidden="true"></i>
+			</div>
+			<div id="listMusic">
+				<div class="output">
+				</div>
+			</div>
+		</div>
+		<div class='ply'>
+			<audio controls="" controlslist="nodownload" id="audioPlayer" onended=""><source src="" type="audio/mpeg"></audio>
+		</div>
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

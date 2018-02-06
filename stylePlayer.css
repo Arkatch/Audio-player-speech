@@ -1,0 +1,287 @@
+#audioPlayer{
+	display:none;
+}
+#names{
+	padding-top:100px;
+}
+body{
+	margin:0px;
+}
+/**************************
+	Main player div style
+**************************/
+@media screen and (min-width: 1040px) {
+	#grid-background{
+		margin:0 auto;
+		border: 1px solid rgb(204, 204, 204);
+		display:grid;
+		grid-template-columns:30px 240px 50px 300px 70px repeat(7, 50px);
+		grid-template-rows:60px auto;
+		grid-template-areas: 
+		"mic title timeStart timeBar timeEnd back play next random repeat volume listBar"
+		"list list list list list list list list list list list list";
+		background-color: rgb(166, 114, 40);
+		user-select: none; 
+		width:1040px;
+	}
+}
+@media screen and (max-width: 1040px) {
+	#names{
+		padding-top:0px;
+	}
+	#grid-background{
+		margin:0 auto;
+		display:grid;
+		grid-template-columns:210px 300px 210px;
+		grid-template-rows:repeat(6, 220px) 80px;
+		grid-template-areas:
+		"title title title"
+		"timeStart timeBar timeEnd"
+		"back play next"
+		"random repeat volume"
+		"mic mic listBar"
+		"list list list";
+		background-color: rgb(166, 114, 40);
+		user-select: none; 
+		max-width:720px;
+	}
+}
+#grid-background > div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+}
+/*************************/
+
+/**************************
+	grid elem location
+**************************/
+	#mic{
+		grid-area:mic;
+	}
+	#title{
+		grid-area:title;
+	}
+	#timeStart{
+		grid-area:timeStart;
+	}
+	#timeBar{
+		grid-area:timeBar;
+	}
+	#timeEnd{
+		grid-area:timeEnd;
+	}
+	#back{
+		grid-area:back;
+	}
+	#play{
+		grid-area:play;
+	}
+	#next{
+		grid-area:next;
+	}
+	#random{
+		grid-area:random;
+	}
+	#repeat{
+		grid-area:repeat;
+	}
+	#volume{
+		grid-area:volume;
+	}
+/**************************/
+
+/**************************
+	Fa icon style
+**************************/
+.fa{
+	font-size: 19px;
+    color: white;
+}
+.fa:hover{
+	opacity: 0.5;
+}
+.fa:active{
+	opacity: 1;
+}
+/*************************/
+
+/**************************
+	Title object style
+**************************/
+#title{
+	color:white;
+}
+#title:hover{
+	background-color:black;
+	opacity: 0.3;
+}
+/*************************/
+
+/**************************
+	Time start/end style
+**************************/
+#timeStart, #timeEnd{
+	color:white;
+	font-size:15px;
+	font-family:Consolas;
+}
+/*************************/
+
+/**************************
+	Time bar object style
+**************************/
+#timeBar{
+	position:relative;
+}
+#timeBar > hr{
+	width:100%;
+}
+#timeBar > i{
+	position:absolute;
+	left:0px;
+}
+#timeBar > i:active{
+	font-size: 27px;
+	opacity: 1.0;
+}
+/*************************/
+
+/**************************
+	Volume object style
+**************************/
+#volume{
+	position:relative;
+}
+#volumeCtrl{
+	display:none;
+	position:absolute;
+	left: -252px;
+	top: 60px;
+	width:300px;
+	height:50px;
+	opacity:1.0!important;
+	background-color:rgb(242, 242, 242);
+	border:1px solid rgb(204, 204, 204);
+    grid-template-columns: 40px 40px auto 40px;
+	grid-template-areas:
+	"ico marg1 line marg2";
+}
+#volumeCtrl > i{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+	color:black;
+}
+#hrCtrl > i{
+	left:180px;
+	position:absolute;
+	color:blue;
+	font-size:20px;
+}
+#hrCtrl{
+	position:relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align:center;
+	width:100%;
+	grid-area: line;
+}
+#hrCtrl > hr{
+	width:100%;
+	height:2px;
+}
+/*************************/
+
+/**************************
+	Music list (display none in JS)
+**************************/
+#listBar{
+	grid-area:listBar;	
+}
+#listMusic{
+	overflow:auto;
+	overflow-x: hidden;
+	-ms-overflow-x: hidden;
+	grid-area:list;
+	display:block!important;
+	height: 0px;
+	-moz-transition: height 1s; 
+	-webkit-transition: height 1s;  
+	-ms-transition: height 1s;  
+	-o-transition: height 1s;  
+	transition: height 1s;	
+}
+.output{
+	display:none;
+	grid-area:output;	
+}
+.listed{
+	display:grid;
+	color:white;
+	background-color:transparent;
+	grid-template-columns:auto 50px 500px 100px auto 50px 20px;
+	grid-template-rows:60px;
+	grid-template-areas:
+	"margList margListSmall titleList timeList margList2 buttonList scrollbar";
+}
+.listed:hover{
+	background:#d2d5cd63;
+}
+.title{
+	grid-area:titleList;
+	justify-content: left!important;
+}
+.length{
+	grid-area:timeList;
+}
+.butonPlay{
+	grid-area:buttonList;
+}
+.title, .length, .butonPlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+}
+/* width */
+#listMusic::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+#listMusic::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+/* Handle */
+#listMusic::-webkit-scrollbar-thumb {
+    background: grey; 
+}
+
+#listMusic::-webkit-scrollbar-track-piece{
+	background: rgb(242,242,242);
+}
+
+#listMusic::-webkit-scrollbar-corner{
+	display:none;
+}
+
+/* Handle on hover */
+#listMusic::-webkit-scrollbar-thumb:hover {
+	width: 10px;
+    background: #555; 
+}
+/*************************/
+
+/**************************
+	button click background
+**************************/
+#back:active, #play:active, #next:active, #mic:active{
+	background-color:black;
+	opacity: 0.3;
+}
+/*************************/
